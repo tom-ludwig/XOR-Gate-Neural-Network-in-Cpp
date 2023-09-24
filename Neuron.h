@@ -27,7 +27,7 @@ public:
     // the difference to the output neurons is that the hidden neurons don't have a target value
     void calculateHiddenGradients(const vector<Neuron> &nextLayer);
 
-    void updateInputWeights(vector<Neuron> &prevLayer);
+    void updateInputWeights(vector<Neuron> &prevLayer) const;
 
     vector<Connection> getOutputWeights() const;
 
@@ -36,7 +36,8 @@ private:
     double m_outputVal;
     vector<Connection> m_outputWeights;
     double m_gradient; // used by the backpropagation, gradient of the error function, which is the slope of the error function
-    static double eta; //TODO: Include in Net.h
+
+    static double eta;
     static double alpha;
 
     static double sigmoid(double x); // output range [0.0..1.0], smooth curve

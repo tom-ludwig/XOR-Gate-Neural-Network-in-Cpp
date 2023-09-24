@@ -13,7 +13,7 @@ typedef vector<Neuron> Layer;
 class Net {
 public:
     // topology is a vector of unsigned integers, it stands for the number of neurons in each layer
-    Net(const vector<unsigned> &topology);
+    explicit Net(const vector<unsigned> &topology);
 
     // FeedForward is used to calculate the output values
     void feedForward(const vector<double> &inputValues);
