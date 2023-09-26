@@ -23,6 +23,9 @@ public:
 
     // get results is used to get the output values
     void getResults(vector<double> &resultValues) const;
+
+    [[nodiscard]] double getRecentAverageError() const;
+
 private:
     vector<Layer> m_layers; // m_layers[layerNum][neuronNum]
     double m_error; // error is the average error of the output neurons

@@ -16,7 +16,7 @@ public:
 
     void setOutputVal(double value);
 
-    double getOutputVal() const;
+    [[nodiscard]] double getOutputVal() const;
 
     // this function is used for calculating the output of the neurons
     void feedForward(const vector<Neuron> &prevLayer);
@@ -29,7 +29,7 @@ public:
 
     void updateInputWeights(vector<Neuron> &prevLayer) const;
 
-    vector<Connection> getOutputWeights() const;
+    [[nodiscard]] vector<Connection> getOutputWeights() const;
 
 private:
     unsigned m_myIndex;
@@ -41,6 +41,7 @@ private:
     static double alpha;
 
     static double sigmoid(double x); // output range [0.0..1.0], smooth curve
+    static double ReLu(double x);
     static double transferFunction(double x); // tanh - output range [-1.0..1.0], smooth curve
     static double transferFunctionDerivative(double x); // tanh derivative
     double sumDOW(const vector<Neuron> &nextLayer) const; // sum of the derivatives of the weights of the next layer

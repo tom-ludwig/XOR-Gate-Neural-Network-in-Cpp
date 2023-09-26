@@ -28,7 +28,7 @@ void Net::feedForward(const vector<double> &inputValues) {
 
     // assing (latch) the input values into the input neurons
     for (unsigned input = 0; input < inputValues.size(); ++input) {
-        m_layers.front()[input].setOutputVal(inputValues[input]);
+        m_layers[0][input].setOutputVal(inputValues[input]);
     }
 
     // note that we are starting at the second layer, because the first layer is the input layer
@@ -72,7 +72,7 @@ void Net::backPropagate(const vector<double> &targetValues) {
     // TODO: Check if the loop starts at the output layer or the first hidden layer;
     for (unsigned layerNum = m_layers.size() - 2; layerNum > 0; --layerNum) {
         Layer &hiddenLayer = m_layers[layerNum];
-        Layer &nextLayer = m_layers[layerNum - 1];
+        Layer &nextLayer = m_layers[layerNum + 1];
 
         for (auto & neuron : hiddenLayer) {
             neuron.calculateHiddenGradients(nextLayer);
@@ -97,11 +97,19 @@ void Net::getResults(vector<double> &resultValues) const {
     }
     cout << "Result: " << endl;
     for (auto & resultValue : resultValues) {
-        cout << resultValue << endl;
+        // if result value is smaller than 0.001, set it to 0
+        // if result is bigger than 0.9, set it to 1
+        if (resultValue < 0.001) {
+            cout << "0" << endl;
+        } else if (resultValue > 0.9) {
+            cout << "1" << endl;
+        }
     }
 }
 
-
+[[nodiscard]] double Net::getRecentAverageError() const {
+    return m_recentAverageError;
+}
 
 
 
