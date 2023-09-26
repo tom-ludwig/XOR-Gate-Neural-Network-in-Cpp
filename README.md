@@ -7,12 +7,12 @@ This repository showcases a basic neural network designed to learn and predict t
 
 
 ## Usage
-1. `Fork` and `clone` the repo.
-2. Follow the steps for generating the trianing data
-3. Follow the steps to execute the code.
+1. **Fork** and **clone** the repository.
+2. Follow the steps to generate the training data.
+3. Execute the code using the following instructions.
 
 ## Generate Training Data for a XOR-Gate
-1. C++ file:
+#### 1. C++ file:
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -31,23 +31,33 @@ int main() {
   }
 }
 ```
+#### 2. Compile the file:
 ```sh
 g++ yourFileName.cpp -o makeTraingSamples
 ```
+#### 3. Run the compiled executable:
 ```sh
 ./makeTraingSamples > trainingData.txt
 ```
-3. Move the `trainingData.txt` file into the projects folder.
 
-## Run
+#### 4. Move the trainingData.txt file into the project's folder.
 
-1. `cd XORGate-NeuralNetwork`
-2. Build project:
+## Running the XOR Gate Neural Network
+
+
+#### 1 Navigate to the project directory:
+```sh
+cd XORGate-NeuralNetwork
+```
+#### 2. Build the project:
 ```sh
 cmake --build cmake-build-debug
 ```
-3. Run:
+
+#### 3. Run the project:
 ```sh
 ./cmake-build-debug/XORGate_NeuralNetwork
 ```
-4. If the training file can't be found, check if the file is under the same diretory form where you execute the command. For example if you use CLion you properly have to move the file into the `cmake-build-debug` folder.
+If the training file cannot be found, please ensure that the file is in the same directory from which you are executing the command. For example, if you are using CLion, you may need to move the file into the cmake-build-debug folder.
+
+Feel free to reach out if you have any questions or encounter any issues. Happy coding!
