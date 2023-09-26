@@ -111,6 +111,18 @@ void Net::getResults(vector<double> &resultValues) const {
     return m_recentAverageError;
 }
 
+[[maybe_unused]] void Net::printPrediction(vector<double> &inputValues) {
+    vector<double> resultValues;
+    feedForward(inputValues);
+    getResults(resultValues);
+
+    cout << "Result: " << resultValues[0] << endl;
+
+    //for (auto resultValue : resultValues) {
+    //    cout << resultValue << endl;
+    //}
+}
+
 
 
 

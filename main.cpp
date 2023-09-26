@@ -78,5 +78,7 @@ int main() {
     showVectorVals("Test results: ", testVals);
     cout << myNet.getRecentAverageError() << endl;
 
+    testVals = {1, 0};
+    myNet.printPrediction(testVals);
     return 0;
 }

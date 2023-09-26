@@ -26,6 +26,8 @@ public:
 
     [[nodiscard]] double getRecentAverageError() const;
 
+    [[maybe_unused]] void printPrediction(vector<double> &inputValues);
+
 private:
     vector<Layer> m_layers; // m_layers[layerNum][neuronNum]
     double m_error; // error is the average error of the output neurons
